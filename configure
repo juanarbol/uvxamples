@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import os
+
+createDepsFolder = "mkdir -p deps/uv"
+
+downloadLibuv = "git clone https://github.com/libuv/libuv deps/uv"
+
+os.system(createDepsFolder)
+os.system(downloadLibuv)
