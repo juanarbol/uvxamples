@@ -2,3 +2,6 @@
 .DS_Store
 
 fs/fs-*
+
+**/output.txt
+*.log
