@@ -5,10 +5,11 @@ _Read [basics of libuv](http://docs.libuv.org/en/v1.x/guide/basics.html#basics-o
 
 ## Content (distributed in folders):
 
-* fs: File system operations
-* idle: Event loop idler handler
-* signals: Signals receptions
-* timer: timer API
+* check: [check examples](/check)
+* fs: [file system operations examples](/fs)
+* idle: [idle examples](/idle)
+* signals: [signal examples](/signals)
+* timer: [timer examples](/timer)
 
 ## Instructions:
 
