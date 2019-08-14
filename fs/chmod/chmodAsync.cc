@@ -3,7 +3,7 @@
 
 void on_chmod(uv_fs_t *req) {
   // Just print when chmod operation is completed!
-  printf("File chwoend!\n");
+  printf("File chwoned!\n");
 }
 
 int main() {

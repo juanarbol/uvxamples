@@ -11,15 +11,8 @@ _Read [basics of libuv](http://docs.libuv.org/en/v1.x/guide/basics.html#basics-o
 * signals: [signal examples](/signals)
 * timer: [timer examples](/timer)
 
-## Instructions:
+## Running examples
 
-1. Go to folder with name of the API that you want to learn
-2. Compile the example you want to run
-3. Execute the example, that's it!
-
-## Requirements:
-
-1. [libuv](http://libuv.org/)
-2. A C++ compiler
+WIP
 
 ## PS: the content presented here are just for educational purposes.
