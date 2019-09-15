@@ -52,6 +52,11 @@ signal:
 timer:
 	$(CC) -I$(libuvHeader) -o build/timer timer/timer.cc -L${libuvFolder} -luv
 
+.PHONY: fsevent
+fsevent:
+	$(CC) -I$(libuvHeader) -o build/watcher fs_event/watcher.cc -L${libuvFolder} -luv
+	$(ECHO) "This is a regular file" > build/file.txt
+
 .PHONY: clean
 clean:
 	rm -rf deps build
