@@ -1,22 +1,23 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
-#define CHECK(code, method) {                                  \
-  if (code < 0) {                                              \
-    fprintf(stderr, "%s error %s", method, uv_strerror(code)); \
-  }                                                            \
-}                                                              \
+#define CHECK(code, method)                                      \
+  {                                                              \
+    if (code < 0) {                                              \
+      fprintf(stderr, "%s error %s", method, uv_strerror(code)); \
+    }                                                            \
+  }
 
-void on_poll(uv_poll_t *handle, int status, int events) {
+void on_poll(uv_poll_t* handle, int status, int events) {
   printf("Polledddd!");
 }
 
 int main() {
   int r;
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   uv_fs_t open_req;
-  
+
   r = uv_fs_open(loop, &open_req, "./file.txt", O_RDONLY, S_IRUSR, NULL);
   CHECK(r, "uv_fs_opendir");
 

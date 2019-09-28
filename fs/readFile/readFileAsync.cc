@@ -1,5 +1,5 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
 // Declare a variable for buffer
 static uv_buf_t iov;
@@ -28,15 +28,16 @@ void read_cb(uv_fs_t* read_req) {
   uv_fs_req_cleanup(&close_req);
 }
 
-
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Open "file.txt" with permissions O_RDONLY and S_IRUSR mode
   // If r is less than 0, that means error
-  // See permission docs: https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
-  // See mode docs: https://www.gnu.org/software/libc/manual/html_node/Permission-Bits.html
+  // See permission docs:
+  // https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html See mode
+  // docs:
+  // https://www.gnu.org/software/libc/manual/html_node/Permission-Bits.html
   r = uv_fs_open(loop, &open_req, "./file.txt", O_RDONLY, S_IRUSR, NULL);
   if (r < 0) {
     // In case of error, just print it

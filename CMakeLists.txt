@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.0)
+
+project (uvxamples)
+
+message(STATUS "Building in ${CMAKE_BUILD_TYPE} mode")
+message(STATUS "Building with ${CMAKE_C_COMPILER_ID} ${CMAKE_C_COMPILER_VERSION} on ${CMAKE_SYSTEM}")
+
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -DDEBUG -O0 -g3")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -DNDEBUG -O2 -g")
+
+option(libuv_buildtests "" OFF)
+add_subdirectory(deps/libuv EXCLUDE_FROM_ALL)
+
+add_executable (uvxamples
+  fs/chmod/chmodAsync.cc
+)
+
+set_target_properties(uvxamples PROPERTIES
+  C_STANDARD 99
+  C_STANDARD_REQUIRED ON
+)
+
+target_link_libraries(uvxamples uv_a)

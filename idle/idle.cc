@@ -1,9 +1,9 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
 int i = 0;
 
-void on_idle (uv_idle_t* handle) {
+void on_idle(uv_idle_t* handle) {
   // Add 1 to i when idling
   i++;
 
@@ -18,14 +18,15 @@ void on_idle (uv_idle_t* handle) {
 
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Initialize our variable for error handling
   int r;
 
   // Initialize uor idle
   // When r less than 0, that means error
-  // See docs: http://docs.libuv.org/en/v1.x/idle.html?highlight=uv_idle_init#c.uv_idle_init
+  // See docs:
+  // http://docs.libuv.org/en/v1.x/idle.html?highlight=uv_idle_init#c.uv_idle_init
   uv_idle_t handle;
   r = uv_idle_init(loop, &handle);
   if (r < 0) {

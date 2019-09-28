@@ -2,16 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// This code was taken from this source: https://github.com/Akagi201/learning-libuv/blob/master/onchange/main.c
+// This code was taken from this source:
+// https://github.com/Akagi201/learning-libuv/blob/master/onchange/main.c
 
 static int r;
-uv_loop_t *loop;
-const char *command;
+uv_loop_t* loop;
+const char* command;
 
-// This program will handle changes (renamed and changed) into a file provided before execution
+// This program will handle changes (renamed and changed) into a file provided
+// before execution
 // ./build/fs_event <command> <file_to_watch> [file2 ...]
-// Example if "./build/fs_event ls file.txt" If file.txt changes, "ls" command will run.
-void run_command(uv_fs_event_t *handle, const char *filename, int events, int status) {
+// Example if "./build/fs_event ls file.txt" If file.txt changes, "ls" command
+// will run.
+void run_command(uv_fs_event_t* handle,
+                 const char* filename,
+                 int events,
+                 int status) {
   fprintf(stderr, "Change detected in %s: ", handle->path);
   if (events == UV_RENAME) {
     fprintf(stderr, "renamed");
@@ -25,7 +31,7 @@ void run_command(uv_fs_event_t *handle, const char *filename, int events, int st
   system(command);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
   // Check if required params was no privided.
   if (argc <= 2) {
     fprintf(stderr, "Usage: %s <command> <file1> [file2 ...]\n", argv[0]);
@@ -55,7 +61,8 @@ int main(int argc, char **argv) {
 
     // The recursive flag watches subdirectories too.
     // See docs: http://docs.libuv.org/en/v1.x/fs_event.html#c.uv_fs_event_start
-    r = uv_fs_event_start(&fs_event_req, run_command, argv[argc], UV_FS_EVENT_RECURSIVE);
+    r = uv_fs_event_start(&fs_event_req, run_command, argv[argc],
+                          UV_FS_EVENT_RECURSIVE);
     if (r < 0) {
       // In case of error, just print it
       // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror

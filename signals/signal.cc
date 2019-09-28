@@ -11,7 +11,7 @@ void signal_handler(uv_signal_t* handle, int signum) {
 
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Create a variable for our signal handler
   uv_signal_t signal;

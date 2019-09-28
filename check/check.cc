@@ -1,7 +1,7 @@
 #include "uv.h"
 #include <stdio.h>
 
-void on_check (uv_check_t *handle) {
+void on_check(uv_check_t* handle) {
   // Notify our event loop iteration!
   printf("Event loop iteration!!\n");
 
@@ -12,7 +12,7 @@ void on_check (uv_check_t *handle) {
 
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Declare a variable for error handling
   int r;

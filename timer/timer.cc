@@ -1,7 +1,7 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
-void on_timeout (uv_timer_t *handle) {
+void on_timeout(uv_timer_t* handle) {
   // Just print timeout in when timeout
   printf("Timeout!!\n");
 
@@ -15,7 +15,7 @@ void on_timeout (uv_timer_t *handle) {
 
 int main() {
   // Declare our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Declare a variable for our timer
   uv_timer_t timer;

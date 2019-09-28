@@ -6,6 +6,4 @@ fs/fs-*
 **/output.txt
 *.log
 
-deps/
-
 build

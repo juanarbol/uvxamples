@@ -1,9 +1,9 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Declare a variable for error handling
   int r;

@@ -1,7 +1,7 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
-void on_create(uv_fs_t *req) {
+void on_create(uv_fs_t* req) {
   // Just announce that our folder was created
   printf("Directory created!\n");
   // Cleanup memory
@@ -10,7 +10,7 @@ void on_create(uv_fs_t *req) {
 
 int main() {
   // Initialize our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // Declare variable for error handling
   int r;

@@ -1,5 +1,5 @@
-#include <uv.h>
 #include <stdio.h>
+#include <uv.h>
 
 // Declare a variable for our opening request
 static uv_fs_t open_req;
@@ -10,7 +10,7 @@ static uv_buf_t iov;
 // Declare a variable for our error handling
 static int r;
 
-void on_open(uv_fs_t *req) {
+void on_open(uv_fs_t* req) {
   // Initialize our buffer
   char buf[22];
   iov = uv_buf_init(buf, 22);
@@ -45,13 +45,15 @@ void on_open(uv_fs_t *req) {
 
 int main() {
   // Declare our event loop
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   // We'll create a file called output.txt, if it exists, it will be truncated
   // When file is created, on_open callback will be called
   // If result is less than 0, that means error
-  // See all flags docs: https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
-  r = uv_fs_open(loop, &open_req, "output.txt", O_TRUNC | O_CREAT | O_RDWR, S_IRUSR | S_IWUSR, on_open);
+  // See all flags docs:
+  // https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
+  r = uv_fs_open(loop, &open_req, "output.txt", O_TRUNC | O_CREAT | O_RDWR,
+                 S_IRUSR | S_IWUSR, on_open);
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
