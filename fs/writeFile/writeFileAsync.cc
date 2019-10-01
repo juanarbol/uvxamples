@@ -52,8 +52,12 @@ int main() {
   // If result is less than 0, that means error
   // See all flags docs:
   // https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
-  r = uv_fs_open(loop, &open_req, "output.txt", O_TRUNC | O_CREAT | O_RDWR,
-                 S_IRUSR | S_IWUSR, on_open);
+  r = uv_fs_open(loop,
+                 &open_req,
+                 "output.txt",
+                 O_TRUNC | O_CREAT | O_RDWR,
+                 S_IRUSR | S_IWUSR,
+                 on_open);
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror

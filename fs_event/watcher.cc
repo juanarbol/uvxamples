@@ -1,6 +1,6 @@
-#include "uv.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "uv.h"
 
 // This code was taken from this source:
 // https://github.com/Akagi201/learning-libuv/blob/master/onchange/main.c
@@ -61,8 +61,8 @@ int main(int argc, char** argv) {
 
     // The recursive flag watches subdirectories too.
     // See docs: http://docs.libuv.org/en/v1.x/fs_event.html#c.uv_fs_event_start
-    r = uv_fs_event_start(&fs_event_req, run_command, argv[argc],
-                          UV_FS_EVENT_RECURSIVE);
+    r = uv_fs_event_start(
+        &fs_event_req, run_command, argv[argc], UV_FS_EVENT_RECURSIVE);
     if (r < 0) {
       // In case of error, just print it
       // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror

@@ -1,5 +1,5 @@
-#include "uv.h"
 #include <stdio.h>
+#include "uv.h"
 
 void on_check(uv_check_t* handle) {
   // Notify our event loop iteration!

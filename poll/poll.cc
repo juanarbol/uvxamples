@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <uv.h>
 
-#define CHECK(code, method)                                      \
-  {                                                              \
-    if (code < 0) {                                              \
-      fprintf(stderr, "%s error %s", method, uv_strerror(code)); \
-    }                                                            \
+#define CHECK(code, method)                                                    \
+  {                                                                            \
+    if (code < 0) {                                                            \
+      fprintf(stderr, "%s error %s", method, uv_strerror(code));               \
+    }                                                                          \
   }
 
 void on_poll(uv_poll_t* handle, int status, int events) {

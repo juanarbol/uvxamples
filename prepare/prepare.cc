@@ -4,11 +4,11 @@
 static int r;
 static void on_prepare(uv_prepare_t*);
 
-#define CHECK(code, method)                                      \
-  {                                                              \
-    if (code < 0) {                                              \
-      fprintf(stderr, "%s error %s", method, uv_strerror(code)); \
-    }                                                            \
+#define CHECK(code, method)                                                    \
+  {                                                                            \
+    if (code < 0) {                                                            \
+      fprintf(stderr, "%s error %s", method, uv_strerror(code));               \
+    }                                                                          \
   }
 
 int main() {
