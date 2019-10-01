@@ -11,13 +11,8 @@ set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -DNDEBUG -O2 -g")
 option(libuv_buildtests "" OFF)
 add_subdirectory(deps/libuv EXCLUDE_FROM_ALL)
 
-add_executable (uvxamples
+link_libraries(uv_a)
+
+add_executable (chmodAsync
   fs/chmod/chmodAsync.cc
 )
-
-set_target_properties(uvxamples PROPERTIES
-  C_STANDARD 99
-  C_STANDARD_REQUIRED ON
-)
-
-target_link_libraries(uvxamples uv_a)
