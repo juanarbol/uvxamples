@@ -13,6 +13,19 @@ add_subdirectory(deps/libuv EXCLUDE_FROM_ALL)
 
 link_libraries(uv_a)
 
+
+# Iterate folders
+file(GLOB files "**/*.cc")
+foreach(file ${files})
+  message(STATUS "File: ${file}")
+endforeach()
+
+# Iterate sub folders
+file(GLOB files "**/**/*.cc")
+foreach(file ${files})
+  message(STATUS "File: ${file}")
+endforeach()
+
 add_executable (chmodAsync
   fs/chmod/chmodAsync.cc
 )
