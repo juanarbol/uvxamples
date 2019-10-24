@@ -18,32 +18,36 @@ add_executable(check src/check/check.cc)
 
 # File system examples.
 add_executable(chmod src/fs/chmod/chmod.cc)
-add_executable(chmodAsync src/fs/chmod/chmodAsync.cc )
-add_executable(mkdir src/fs/mkdir/mkdirSync.cc )
-add_executable(mkdirAsync src/fs/mkdir/mkdirAsync.cc )
-add_executable(readFile src/fs/readFile/readFileSync.cc )
-add_executable(readFileAsync src/fs/readFile/readFileAsync.cc )
-add_executable(writeFile src/fs/writeFile/writeFileSync.cc )
-add_executable(writeFileAsync src/fs/writeFile/writeFileAsync.cc )
+add_executable(chmodAsync src/fs/chmod/chmodAsync.cc)
+add_executable(mkdir src/fs/mkdir/mkdirSync.cc)
+add_executable(mkdirAsync src/fs/mkdir/mkdirAsync.cc)
+add_executable(readFile src/fs/readFile/readFileSync.cc)
+add_executable(readFileAsync src/fs/readFile/readFileAsync.cc)
+add_executable(writeFile src/fs/writeFile/writeFileSync.cc)
+add_executable(writeFileAsync src/fs/writeFile/writeFileAsync.cc)
 
 # Fs event example.
-add_executable(watcher src/fs_event/watcher.cc )
+add_executable(watcher src/fs_event/watcher.cc)
 
 # Idle example.
-add_executable(idle src/idle/idle.cc )
+add_executable(idle src/idle/idle.cc)
 
 # Poll example.
-add_executable(poll src/poll/poll.cc )
+add_executable(poll src/poll/poll.cc)
 
 # Prepare example.
-add_executable(prepare src/prepare/prepare.cc )
+add_executable(prepare src/prepare/prepare.cc)
 
 # Signals example.
-add_executable(signals src/signals/signal.cc )
+add_executable(signals src/signals/signal.cc)
 
 # Tcp example.
-add_executable(tcp-server src/tcp/tcp-server.cc )
-add_executable(tcp-client src/tcp/tcp-client.cc )
+add_executable(tcp-server src/tcp/tcp-server.cc)
+add_executable(tcp-client src/tcp/tcp-client.cc)
 
 # Timer example.
-add_executable(timer src/timer/timer.cc )
+add_executable(timer src/timer/timer.cc)
+
+# Special thanks to Saúl Ibarra for the recomendation of using Cmake
+# to build Libuv and this project, also, a huge part of this code was
+# taken from his project txiki.js https://github.com/saghul/txiki.js

@@ -9,6 +9,10 @@ We use CMake as building tool, so we can run multiplatform!
 
 Run `$ make`, yes, that's it!
 
+## Running examples:
+
+Run `$ npm install`, then `$ npm start`, yeap, we love you.
+
 ## Content (distributed in folders):
 
 * check: [check examples](/check)
@@ -17,15 +21,10 @@ Run `$ make`, yes, that's it!
 * signals: [signal examples](/signals)
 * timer: [timer examples](/timer)
 
-## Running examples
-
-WIP
-
 ## Dependencies:
 
 1. Cmake (at least 3.0).
 2. Make.
-3. Ninja.
-4. Node.js.
+3. Node.js.
 
 ## PS: the content presented here are just for educational purposes.

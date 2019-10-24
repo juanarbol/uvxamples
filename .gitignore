@@ -7,3 +7,5 @@ fs/fs-*
 *.log
 
 build
+node_modules
+**/*.log
