@@ -9,17 +9,17 @@ We use CMake as building tool, so we can run multiplatform!
 
 Run `$ make`, yes, that's it!
 
-## Running examples:
+## Running examples:
 
 Run `$ npm install`, then `$ npm start`, yeap, we love you.
 
-## Content (distributed in folders):
+## Example instructions (distributed in folders):
 
-* check: [check examples](/check)
-* fs: [file system operations examples](/fs)
-* idle: [idle examples](/idle)
-* signals: [signal examples](/signals)
-* timer: [timer examples](/timer)
+* check: [check examples](/src/check)
+* fs: [file system operations examples](/src/fs)
+* idle: [idle examples](/src/idle)
+* signals: [signal examples](/src/signals)
+* timer: [timer examples](/src/timer)
 
 ## Dependencies:
 
