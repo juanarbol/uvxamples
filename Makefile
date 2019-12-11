@@ -21,7 +21,7 @@ distclean:
 	@rm -rf $(BUILD_DIR)
 
 format:
-	clang-format **/**/*.cc
+	clang-format -i src/**/*.cc
 
 test:
 	ECHO "No tests yet :'("
