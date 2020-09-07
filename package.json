@@ -2,9 +2,10 @@
   "name": "@juanarbol/uvxamples",
   "version": "1.0.0",
   "description": "This project is just for show some examples of [libuv](http://libuv.org/) API. _Read [basics of libuv](http://docs.libuv.org/en/v1.x/guide/basics.html#basics-of-libuv) first_.",
-  "main": "menu/menu.js",
   "dependencies": {},
-  "scripts": {},
+  "scripts": {
+    "start": "python3 lib/example_runner.py"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/juanarbol/uvxamples.git"

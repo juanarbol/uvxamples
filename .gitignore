@@ -9,3 +9,5 @@ fs/fs-*
 build
 node_modules
 **/*.log
+
+uvxamples-venv
