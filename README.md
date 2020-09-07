@@ -7,11 +7,39 @@ _Read [basics of libuv](http://docs.libuv.org/en/v1.x/guide/basics.html#basics-o
 
 We use CMake as building tool, so we can run multiplatform!
 
-Run `$ make`, yes, that's it!
+Run `./run.sh`, yes, that's it!
 
 ## Running examples:
 
-Run `$ npm install`, then `$ npm start`, yeap, we love you.
+There are two ways to do this, using python virtual env, or regular python env.
+
+### Running with python virtual enviroment:
+
+Run
+
+```bash
+# Activate the virtual envrionment.
+source uvxamples-venv/bin/activate`
+
+# With npm run.
+npm start
+
+# With python3 run.
+python3 lib/example_runner.py
+```
+
+### Running without python virtual enviroment:
+
+```bash
+# Install the python dependencies.
+pip install -r requirements.txt
+
+# With npm run.
+npm start
+
+# With python3 run.
+python3 lib/example_runner.py
+```
 
 ## Example instructions (distributed in folders):
 
@@ -26,5 +54,6 @@ Run `$ npm install`, then `$ npm start`, yeap, we love you.
 1. Cmake (at least 3.0).
 2. Make.
 3. Node.js.
+4. Python3 with pip.
 
 ## PS: the content presented here are just for educational purposes.
