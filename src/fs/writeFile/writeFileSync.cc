@@ -31,11 +31,11 @@ int main() {
   }
 
   // Initialize our buffer
-  char buf[21];
-  iov = uv_buf_init(buf, 21);
+  char buf[22];
+  iov = uv_buf_init(buf, 22);
 
   // write "This a literal string" as his content
-  iov.base = "This a literal string";
+  iov.base = (char*)"This a literal string\n";;
 
   // Write file using our buffer content
   uv_fs_t write_req;
