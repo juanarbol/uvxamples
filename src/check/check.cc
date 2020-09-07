@@ -34,7 +34,7 @@ int main() {
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_check_init: %s", uv_strerror(r));
+    fprintf(stderr, "uv_check_start: %s", uv_strerror(r));
   }
 
   // Run our event loop with UV_RUN_NOWAIT mode
