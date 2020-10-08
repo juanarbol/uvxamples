@@ -54,6 +54,6 @@ python3 lib/example_runner.py
 1. Cmake (at least 3.0).
 2. Make.
 3. Node.js.
-4. Python3 with pip.
+4. Python3 with pip and venv.
 
 ## PS: the content presented here are just for educational purposes.
