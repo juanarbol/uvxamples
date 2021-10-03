@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <uv.h>
-#include <cstdlib>
+#include <stdlib.h>
 
 // Prepare handles will run the given callback once per loop iteration, right
 // before polling for i/o.
