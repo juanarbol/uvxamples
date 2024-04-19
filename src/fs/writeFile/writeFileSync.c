@@ -1,15 +1,25 @@
 #include <stdio.h>
 #include <uv.h>
 
-// Deaclare a variable for our buffer
-static uv_buf_t iov;
+// NOTE:
+// The usage -as an example- is `./writeFileSync /tmp/output.txt`
+// To test this, you could print the file content using `cat /tmp/output.txt`
+int main (int argc, char *argv[]) {
+  // Check if required params was no privided.
+  if (argc <= 1) {
+    fprintf(stderr, "Usage: %s <file>\n", argv[0]);
+    fprintf(stderr, "And <file> will be written with \"My uv string\"\n");
+    return 1;
+  }
 
-// Declare a variable for our open request
-static uv_fs_t open_req;
-
-int main() {
   // Initialize our event loop
   uv_loop_t* loop = uv_default_loop();
+
+  // Deaclare a variable for our buffer
+  uv_buf_t iov;
+
+  // Declare a variable for our open request
+  uv_fs_t open_req;
 
   // Declare a variable for error handling
   int r;
@@ -20,7 +30,7 @@ int main() {
   // https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
   r = uv_fs_open(loop,
                  &open_req,
-                 "output.txt",
+                 argv[1],
                  O_TRUNC | O_CREAT | O_RDWR,
                  S_IRUSR | S_IWUSR,
                  NULL);
@@ -31,11 +41,9 @@ int main() {
   }
 
   // Initialize our buffer
-  char buf[22];
-  iov = uv_buf_init(buf, 22);
-
-  // write "This a literal string" as his content
-  iov.base = (char*)"This a literal string\n";;
+  char* buf = "My uv string\n";
+  iov = uv_buf_init(buf, strlen(buf));
+  iov.base = buf;
 
   // Write file using our buffer content
   uv_fs_t write_req;

@@ -9,11 +9,10 @@ void on_open(uv_fs_t* req) {
   uv_buf_t iov;
 
   // Initialize our buffer
-  char buf[22];
-  iov = uv_buf_init(buf, 22);
-
-  // write "This a literal string" as his content
-  iov.base = "hello world with libuv";
+  // See docs: https://docs.libuv.org/en/v1.x/misc.html#c.uv_buf_init
+  char* buf = "My uv string\n";
+  iov = uv_buf_init(buf, strlen(buf));
+  iov.base = buf;
 
   // Write file using our buffer content
   uv_fs_t write_req;
@@ -21,17 +20,18 @@ void on_open(uv_fs_t* req) {
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_fs_write: %s", uv_strerror(r));
+    fprintf(stderr, "uv_fs_write: %s\n", uv_strerror(r));
   }
 
   // Declare a variable for closing request
   uv_fs_t close_req;
   // Close our wrote file declared on open_req (see line 52)
+  // See docs: http://docs.libuv.org/en/v1.x/fs.html#c.uv_fs_close
   r = uv_fs_close(req->loop, &close_req, req->result, NULL);
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_fs_close: %s", uv_strerror(r));
+    fprintf(stderr, "uv_fs_close: %s\n", uv_strerror(r));
   }
 
   // Cleanup our memory
@@ -41,6 +41,11 @@ void on_open(uv_fs_t* req) {
 }
 
 int main (int argc, char** argv) {
+  if (argc <= 1) {
+    fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+    fprintf(stderr, "And <file> will be written with \"My uv string\"\n");
+    return 1;
+  }
   // Declare our event loop
   uv_loop_t* loop = uv_default_loop();
 
@@ -52,14 +57,14 @@ int main (int argc, char** argv) {
   uv_fs_t open_req;
   r = uv_fs_open(loop,
                  &open_req,
-                 "output.txt",
+                 argv[1],
                  O_TRUNC | O_CREAT | O_RDWR,
                  S_IRUSR | S_IWUSR,
                  on_open);
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_fs_open: %s", uv_strerror(r));
+    fprintf(stderr, "uv_fs_open: %s\n", uv_strerror(r));
   }
 
   // Run our event loop

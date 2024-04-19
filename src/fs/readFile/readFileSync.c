@@ -16,7 +16,13 @@
 // This variable if for error handling!
 static int r;
 
-int main() {
+int main (int argc, char** argv) {
+  if (argc <= 1) {
+    fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+    fprintf(stderr, "And <file> will be read and store in a buffer with %d size\n", BUF_SIZE);
+    return 1;
+  }
+
   // Initialize the event loop
   uv_loop_t* loop = uv_default_loop();
 
@@ -43,11 +49,11 @@ int main() {
   // loop: this is our main event loop
   // &open_req: this is the memory address where libuv save the result of
   // opening operation
-  // "./file.txt": this is our file route
+  // argv[1]: this is our file route
   // O_RDONLY: this is the flag for opening th file
   // S_IRUSR: mode or permission code
   // NULL: this is our callback param, send NULL for making this sync
-  r = uv_fs_open(loop, &open_req, "./file.txt", O_RDONLY, S_IRUSR, NULL);
+  r = uv_fs_open(loop, &open_req, argv[1], O_RDONLY, S_IRUSR, NULL);
   if (r < 0) {
     // This is our little error handler
     // If an error ocurred during opening file, printed using stderr
