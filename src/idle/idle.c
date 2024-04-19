@@ -1,19 +1,12 @@
 #include <stdio.h>
 #include <uv.h>
 
-int i = 0;
-
 void on_idle(uv_idle_t* handle) {
-  // Add 1 to i when idling
-  i++;
 
   // Just tell that our event loop is idling
-  printf("Event loop!!\n");
+  printf("Loop iteration before prepare handles!!\n");
 
-  if (i >= 1000) {
-    // Well, 1000 times idling, it's too much idling, stop!
-    uv_idle_stop(handle);
-  }
+  uv_idle_stop(handle);
 }
 
 int main() {
@@ -37,6 +30,7 @@ int main() {
 
   // Start our idle listening
   // And calle on_idle callback when event loop is idling
+  // See docs: http://docs.libuv.org/en/v1.x/idle.html?highlight=uv_idle_start#c.uv_idle_start
   r = uv_idle_start(&handle, on_idle);
   if (r < 0) {
     // In case of error, just print it
@@ -45,6 +39,7 @@ int main() {
   }
 
   // Run our event loop
+  // See docs: http://docs.libuv.org/en/v1.x/loop.html#c.uv_run
   uv_run(loop, UV_RUN_DEFAULT);
   return 0;
 }

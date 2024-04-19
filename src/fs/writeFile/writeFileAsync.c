@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <uv.h>
 
-// Declare a variable for our opening request
-static uv_fs_t open_req;
-
-// Declare a variable for our buffer
-static uv_buf_t iov;
-
 // Declare a variable for our error handling
-static int r;
+int r;
 
 void on_open(uv_fs_t* req) {
+  // Declare a variable for our buffer
+  uv_buf_t iov;
+
   // Initialize our buffer
   char buf[22];
   iov = uv_buf_init(buf, 22);
@@ -43,7 +40,7 @@ void on_open(uv_fs_t* req) {
   uv_fs_req_cleanup(&close_req);
 }
 
-int main() {
+int main (int argc, char** argv) {
   // Declare our event loop
   uv_loop_t* loop = uv_default_loop();
 
@@ -52,6 +49,7 @@ int main() {
   // If result is less than 0, that means error
   // See all flags docs:
   // https://pubs.opengroup.org/onlinepubs/007908799/xsh/open.html
+  uv_fs_t open_req;
   r = uv_fs_open(loop,
                  &open_req,
                  "output.txt",

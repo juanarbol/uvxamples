@@ -1,5 +1,5 @@
-#include "uv.h"
-#include "stdio.h"
+#include <uv.h>
+#include <stdio.h>
 
 int main (int argc, char* argv[]) {
   // In UNIX systems `uv_setup_args` should be called before `uv_set_process_title`

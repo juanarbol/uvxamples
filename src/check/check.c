@@ -2,8 +2,7 @@
 #include "uv.h"
 
 void on_check(uv_check_t* handle) {
-  // Notify our event loop iteration!
-  printf("Event loop iteration!!\n");
+  printf("Event loop finished I/O polling!!\n");
 
   // Stop our check handle
   // See docs: http://docs.libuv.org/en/v1.x/check.html#c.uv_check_stop

@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <uv.h>
 
-int main() {
+int main(int argc, char** argv) {
   // Initialize our event loop
+  // See docs: http://docs.libuv.org/en/v1.x/loop.html?highlight=uv_backend#c.uv_default_loop
   uv_loop_t* loop = uv_default_loop();
 
   // Get the loop's idle metric

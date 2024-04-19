@@ -5,8 +5,8 @@ int main() {
   // Get the current working dir using libuv
   // Docs: http://docs.libuv.org/en/v1.x/misc.html#c.uv_cwd
   char buff[256];
-  size_t* size = sizeof buff;
-  int r = uv_cwd(buff, &size);
+  size_t buff_size = sizeof(buff);
+  int r = uv_cwd(buff, &buff_size);
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror

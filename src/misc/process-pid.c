@@ -1,5 +1,5 @@
-#include "uv.h"
-#include "stdio.h"
+#include <uv.h>
+#include <stdio.h>
 
 int main (int argc, char* argv[]) {
   // Get the PID current process
@@ -7,6 +7,6 @@ int main (int argc, char* argv[]) {
   uv_pid_t pid = uv_os_getpid();
 
   // Print the process PID!
-  fprintf(stdout, "The PID is : %d\n", pid);
+  fprintf(stdout, "The PID is: %d\n", pid);
   return 0;
 }
