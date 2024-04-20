@@ -31,8 +31,8 @@ $ ./build/example
 
 * async: [async handles](/src/async)
 * check: [check phase example](/src/check)
-* fs: [file system operations examples](/src/fs)
 * fs events: [file system events examples](/src/fs_events)
+* fs: [file system operations examples](/src/fs)
 * idle: [idle examples](/src/idle)
 * loop: [event loop API examples](/src/loop)
 * metrics: [libuv metrics operations](/src/metrics)
@@ -41,6 +41,7 @@ $ ./build/example
 * prepare: [prepare phase example](/src/prepare)
 * signals: [signal examples](/src/signals)
 * tcp: [tcp examples](/src/tcp)
+* threads: [threads examples](/src/threads)
 * timer: [timer examples](/src/timer)
 
 ## Dependencies:
