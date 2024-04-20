@@ -29,6 +29,7 @@ $ ./build/example
 
 ## Example index:
 
+* async: [async handles](/src/async)
 * check: [check phase example](/src/check)
 * fs: [file system operations examples](/src/fs)
 * fs events: [file system events examples](/src/fs_events)
@@ -45,5 +46,6 @@ $ ./build/example
 ## Dependencies:
 
 1. Cmake (at least 3.0).
+2. Make.
 
 ## PS: the content presented here is just for educational purposes.
