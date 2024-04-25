@@ -30,6 +30,7 @@ $ ./build/example
 ## Example index:
 
 * async: [async handles](/src/async)
+* pipe: [pipe example](/src/pipe)
 * check: [check phase example](/src/check)
 * fs events: [file system events examples](/src/fs_events)
 * fs: [file system operations examples](/src/fs)
