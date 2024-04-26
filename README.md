@@ -30,7 +30,6 @@ $ ./build/example
 ## Example index:
 
 * async: [async handles](/src/async)
-* pipe: [pipe example](/src/pipe)
 * check: [check phase example](/src/check)
 * fs events: [file system events examples](/src/fs_events)
 * fs: [file system operations examples](/src/fs)
@@ -38,6 +37,7 @@ $ ./build/example
 * loop: [event loop API examples](/src/loop)
 * metrics: [libuv metrics operations](/src/metrics)
 * misc: [misc examples](/src/misc)
+* pipe: [pipe example](/src/pipe)
 * poll: [polling phase example](/src/poll)
 * prepare: [prepare phase example](/src/prepare)
 * signals: [signal examples](/src/signals)
