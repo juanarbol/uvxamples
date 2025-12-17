@@ -47,7 +47,7 @@ $ ./build/example
 
 ## Dependencies:
 
-1. Cmake (at least 3.0).
+1. Cmake (at least 3.10).
 2. Make.
 3. Your preferred C compiler
 
