@@ -32,7 +32,7 @@ int main (int argc, char** argv) {
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_async_init: %s", uv_strerror(r));
+    fprintf(stderr, "uv_async_init: %s\n", uv_strerror(r));
     return r;
   }
 
@@ -43,7 +43,8 @@ int main (int argc, char** argv) {
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_thread_create: %s", uv_strerror(r));
+    fprintf(stderr, "uv_thread_create: %s\n", uv_strerror(r));
+    uv_close((uv_handle_t*)&async, NULL);
     return r;
   }
 
@@ -52,7 +53,8 @@ int main (int argc, char** argv) {
   if (r < 0) {
     // In case of error, just print it
     // See docs: http://docs.libuv.org/en/v1.x/errors.html#c.uv_strerror
-    fprintf(stderr, "uv_thread_join: %s", uv_strerror(r));
+    fprintf(stderr, "uv_thread_join: %s\n", uv_strerror(r));
+    uv_close((uv_handle_t*)&async, NULL);
     return r;
   }
 
